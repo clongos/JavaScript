@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SORT IT!</title>
+</head>
+<body>
+<p style="color:green;font-family:Arial"><strong>Enter names:</strong></p>
+<input id="nam">
+<input type="button" onclick="arrangeNames()" value="Ascending"></button><input type="button" onclick="arrangeNames2()" value="Descending"></button>
+<p id="result"></p>
+<script>
+	function arrangeNames() {
+		var nameArray = document.getElementById("nam").value.split(' ').join('').split(',');
+		for (var i = 0; i <= nameArray.length-1; i++) {
+			if (nameArray[i] > nameArray[i+1]) {
+				var temp = nameArray[i+1];
+				nameArray[i+1] = nameArray[i];
+				nameArray[i] = temp;
+				i = i-2;
+      }
+	  }
+	  alert(nameArray);
+}
+	function arrangeNames2() {
+		var nameArray = document.getElementById("nam").value.split(' ').join('').split(',');
+		for (var i = 0; i <= nameArray.length-1; i++) {
+			if (nameArray[i] < nameArray[i+1]) {
+				var temp = nameArray[i+1];
+				nameArray[i+1] = nameArray[i];
+				nameArray[i] = temp;
+				i = i-2;
+      }
+	  }
+	  alert(nameArray);
+}
+</script>
+</body>
+</html>

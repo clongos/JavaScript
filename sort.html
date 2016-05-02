@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SORT IT!</title>
+</head>
+<body>
+<p style="color:green;font-family:Arial"><strong>Enter numbers:</strong></p>
+<input id="numb">
+<input type="button" onclick="arrangeNumbers()" value="Ascending"></button><input type="button" onclick="arrangeNumbers2()" value="Descending"></button>
+<p id="result"></p>
+<script>
+	function arrangeNumbers() {
+		var numberArray = document.getElementById("numb").value.split(' ').join('').split(',');
+		for (var i = 0; i <= numberArray.length-1; i++) {
+			if (Number(numberArray[i]) > Number(numberArray[i+1])) {
+				var temp = numberArray[i+1];
+				numberArray[i+1] = numberArray[i];
+				numberArray[i] = temp;
+				i = i-2;
+      }
+	  }
+	  alert(numberArray);
+}
+	function arrangeNumbers2() {
+		var numberArray = document.getElementById("numb").value.split(' ').join('').split(',');
+		for (var i = 0; i <= numberArray.length-1; i++) {
+			if (Number(numberArray[i]) < Number(numberArray[i+1])) {
+				var temp = numberArray[i+1];
+				numberArray[i+1] = numberArray[i];
+				numberArray[i] = temp;
+				i = i-2;
+				console.log(numberArray);
+      }
+	  }
+	  alert(numberArray);
+}
+</script>
+</body>
+</html>
