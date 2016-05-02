@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Higher or Lower</title>
+</head>
+<body background="deadpool-wallpaper-mask-cool-wallpaper-backgrounds-for-phone-30u06baxj980swaifhatca.jpg">
+<p style="color:green;font-family:Arial"><strong>Guess the number from 1 to 100</strong></p>
+<input id="guess">
+<input type="button" onclick="checkGuess()" value="Submit"></button>
+<p id="result"></p>
+<script>
+	var tries = 5 ;
+	var computerChoice = Math.floor((Math.random() * 100) + 1);
+    function checkGuess() {
+        userChoice = document.getElementById("guess").value;
+        if (computerChoice == userChoice) {
+			tries = tries - 5;
+            document.getElementById("result").innerHTML = "Correct!";
+        } else if (userChoice < computerChoice) {
+            tries = tries - 1;
+            document.getElementById("result").innerHTML = "Higher! You only have "+ tries + " tries";
+            if (tries > 0) {
+                compare();
+            } else {
+               document.getElementById("result").innerHTML = "Game Over! the answer is "+ computerChoice;
+        }
+		} else if (userChoice > computerChoice) {
+            tries = tries - 1;
+            document.getElementById("result").innerHTML = "Lower! You only have "+ tries + " tries";
+            if (tries > 0) {
+                compare();
+            } else {
+               document.getElementById("result").innerHTML = "Game Over! the answer is "+ computerChoice;
+        }
+		} else if (userChoice > 100) {
+				tries = tries - 1;
+				document.getElementById("result").innerHTML = "Invalid Input! You only have "+ tries + " tries";
+				if (tries > 0) {
+					compare();
+				} else {
+					document.getElementById("result").innerHTML = "Game Over! the answer is "+ computerChoice;
+        }
+		}  else if (isNaN(userChoice)) {
+				tries = tries - 1;
+				document.getElementById("result").innerHTML = "Invalid Input! You only have "+ tries + " tries";
+				if (tries > 0) {
+					compare();
+				} else {
+					document.getElementById("result").innerHTML = "Game Over! the answer is "+ computerChoice;
+        }
+		}
+}
+</script>
+</body>
+</html>
