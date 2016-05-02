@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Conversion</title></head>
+	<body>
+		Value to Celcius<p> <input id="celcius" onkeyup="converter('Far')"> <p>
+		Value to Farenheit<p> <input id="farenheit" onkeyup="converter('Cel')">
+		<script>
+			function converter(value) {
+				if (value == 'Far') {
+					var c = document.getElementById("celcius").value;
+					var result1 = (c * 9/5) + 32;
+					document.getElementById("farenheit").value = result1;
+				} else {
+					var f = document.getElementById("farenheit").value;
+					var result2 = (f - 32) * 5/9;
+					document.getElementById("celcius").value = result2;
+				}
+			}
+		</script>
+	</body>
+</html>
