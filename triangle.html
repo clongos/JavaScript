@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center><input id="numb">
+<input type="button" onclick='myFunction()' value='Enter'></button></center>
+<center><p id="test"></p></center>
+<script>
+function myFunction() {
+    document.getElementById("test").innerHTML = "";
+    var times, ast;
+    ast = ''
+    times = document.getElementById("numb").value;
+    while (times > 0) {
+        ast += "*" + ' ';
+        document.getElementById("test").innerHTML += ast + "<br>";
+        times--;
+    }
+}
+</script>
+</body>
+</html>
