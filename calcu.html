@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        input {
+            height: 30px; width:30px;
+            border-radius: 15px 50px;
+        }
+        #operate {
+            height: 30px; width:170px;
+            border:2px solid #456879;
+	        border-radius:10px;
+        }
+        #equals {
+            height: 30px; width:135px;
+        }
+    </style>
+    <title>Calculator</title>
+</head>
+<body>
+<center>
+    <br><br><br><br>
+    <div style="width:225px; height:345px; background-color:maroon; border-radius: 15px 50px; border-style: solid;">
+        <br><br>OSCAR<br><br>
+<input id="operate"><br><br>
+<input type='button' onclick=number(7) value="7">
+<input type='button' onclick=number(8) value="8">
+<input type='button' onclick=number(9) value="9">
+<input type='button' onclick=operation("subtract") value=" - ">
+<input type='button' onclick=operation("divide") value=" / "><br><br>
+<input type='button' onclick=number(4) value="4">
+<input type='button' onclick=number(5) value="5">
+<input type='button' onclick=number(6) value="6">
+<input type='button' onclick=operation("multiply") value=" * ">
+<input type='button' onclick=operation("add") value=" + "><br><br>
+<input type='button' onclick=number(1) value="1">
+<input type='button' onclick=number(2) value="2">
+<input type='button' onclick=number(3) value="3">
+<input type='button' onclick=number(0) value="0">
+<input type='button' onclick=number('.') value=" . "><br><br>
+<input id='equals' type='button' onclick='compute()' value="Compute">
+<input type='button' onclick=number('C') value="C"></div>
+<script>
+    function operation(operand) {
+    switch(operand) {
+    case 'add':
+        document.getElementById("operate").value += ' + ';
+        break;
+    case 'subtract':
+        document.getElementById("operate").value += ' - ';
+        break;
+    case 'divide':
+        document.getElementById("operate").value += ' / ';
+        break;
+    case 'multiply':
+        document.getElementById("operate").value += ' * ';
+        break;
+    }
+    }
+    function compute() {
+        var calculate = document.getElementById("operate").value.split(' ');
+        if (calculate[1] == '+') {
+            answer = Number(calculate[0]) + Number(calculate[2]);
+            document.getElementById("operate").value = answer;
+        }else if (calculate[1] == '-') {
+            answer = Number(calculate[0]) - Number(calculate[2]);
+            document.getElementById("operate").value = answer;
+        }else if (calculate[1] == '/') {
+            answer = Number(calculate[0]) / Number(calculate[2]);
+            document.getElementById("operate").value = answer;
+        }else if (calculate[1] == '*') {
+            answer = Number(calculate[0]) * Number(calculate[2]);
+            document.getElementById("operate").value = answer;
+        }
+    }
+    function number(numb) {
+        switch(numb) {
+            case 0:
+            document.getElementById("operate").value += '0';
+            break;
+            case 1:
+            document.getElementById("operate").value += '1';
+            break;
+            case 2:
+            document.getElementById("operate").value += '2';
+            break;
+            case 3:
+            document.getElementById("operate").value += '3';
+            break;
+            case 4:
+            document.getElementById("operate").value += '4';
+            break;
+            case 5:
+            document.getElementById("operate").value += '5';
+            break;
+            case 6:
+            document.getElementById("operate").value += '6';
+            break;
+            case 7:
+            document.getElementById("operate").value += '7';
+            break;
+            case 8:
+            document.getElementById("operate").value += '8';
+            break;
+            case 9:
+            document.getElementById("operate").value += '9';
+            break;
+            case '.':
+            document.getElementById("operate").value += '.';
+            break;
+            case 'C':
+            document.getElementById("operate").value = '';
+            break;
+    }
+    }
+</script></center>
+</body>
+</html>
