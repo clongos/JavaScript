@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<p>ADDITION QUIZ</p>
+<div style="display:inline-block">
+<p id="question1">1 + 1</p>
+<input id="operate1" onchange="userAnswer[0]=this.value">
+<p id="question2">2 + 2</p>
+<input id="operate2" onchange="userAnswer[1]=this.value">
+<p id="question3">3 + 3</p>
+<input id="operate3" onchange="userAnswer[2]=this.value">
+<p id="question4">4 + 4</p>
+<input id="operate4" onchange="userAnswer[3]=this.value">
+<p id="question5">5 + 5</p>
+<input id="operate5" onchange="userAnswer[4]=this.value"></div>
+<div style="display:inline-block"><p id="question6">6 + 6</p>
+<input id="operate6" onchange="userAnswer[5]=this.value">
+<p id="question7">7 + 7</p>
+<input id="operate7" onchange="userAnswer[6]=this.value">
+<p id="question8">8 + 8</p>
+<input id="operate8" onchange="userAnswer[7]=this.value">
+<p id="question9">9 + 9</p>
+<input id="operate9" onchange="userAnswer[8]=this.value">
+<p id="question10">10 + 10</p>
+<input id="operate10" onchange="userAnswer[9]=this.value"></div>
+<p><input type='button' onclick='myFunction()' value="Submit"></p>
+<script>
+    var score = 0;
+    var answered = 0;
+    var userAnswer = [0,0,0,0,0,0,0,0,0,0];
+    var answers = [2,4,6,8,10,12,14,16,18,20];
+    function myFunction() {
+        console.log(userAnswer)
+        for (x in userAnswer) {
+                if (userAnswer[x] == answers[x]) {
+                    score += 1;
+                    answered += 1;
+                } else {
+                    answered += 1;
+                }
+             if (answered == 10) {
+                alert('You answered '+score+' questions correctly!');
+                }
+        }
+}
+</script>
+</body>
+</html>

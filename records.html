@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<p>Name:</p>
+<input id="name">
+<p>Address:</p>
+<input id="address">
+<p>Email:</p>
+<input id="email">
+<p>Contact Number:</p>
+<input id="contact">
+<p><input id='save' type='button' onclick='addContacts()' value="Save"></p>
+<p>Enter Name:</p>
+<input id="search">
+<p><input id='ser' type='button' onclick='searchContacts()' value="Search" disabled></p>
+<p id="nam"></p>
+<p id="add"></p>
+<p id="ema"></p>
+<p id="con"></p>
+<script>
+    var contacts = [];
+    var lst = [name,address,email,contacts];
+    function Person() {
+    this.name = document.getElementById("name").value;
+    this.address = document.getElementById("address").value;
+    this.email = document.getElementById("email").value;
+    this.contact = document.getElementById("contact").value;
+}
+    function addContacts() {
+        newP = {};
+        document.getElementById("ser").disabled = false;
+        newP = new Person();
+        contacts.push(newP);
+}
+    function searchContacts() {
+        document.getElementById("name").value = '';
+        document.getElementById("address").value = '';
+        document.getElementById("email").value = '';
+        document.getElementById("contact").value = '';
+         nameSearch = document.getElementById("search").value;
+         for (x in contacts) {
+                if (nameSearch.toLowerCase() == contacts[x].name.toLowerCase()) {
+                    printPerson(contacts[x].name,contacts[x].address,contacts[x].email,contacts[x].contact);
+                }
+     }
+}
+    function printPerson(name,address,email,contact) {
+           document.getElementById("nam").innerHTML = 'Name: ' + name;
+           document.getElementById("add").innerHTML = 'Address: ' + address;
+           document.getElementById("ema").innerHTML = 'Email: ' + email;
+           document.getElementById("con").innerHTML = 'Contact Number: ' + contact;
+}
+
+</script>
+</body>
+</html>
