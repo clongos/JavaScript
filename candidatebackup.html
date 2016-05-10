@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vote Wisely!</title>
+</head>
+<body>
+<p>Who are you going to vote for President?</p>
+<input id="name">
+<p><input id='save' type='button' onclick='searchList()' value="Vote"></p>
+<table><thead>
+<th>ID</th><th>Name</th><th>Age</th></thead>
+    <tbody>
+    <tr><td>1</td><td>Rodrigo Duterte</td><td>70</td></tr>
+    <tr><td>2</td><td>Grace Poe</td><td>50</td></tr>
+    <tr><td>3</td><td>Miriam Santiago</td><td>72</td></tr>
+    <tr><td>4</td><td>Mar Roxas</td><td>65</td></tr>
+    <tr><td>5</td><td>Jejomar Binay</td><td>75</td></tr>
+    </tbody>
+</table>
+<p id="res"></p>
+<script>
+    var candidateList = [];
+    var blackListed = [];
+    function Candidate(num,name,age,comment) {
+        this.id = num;
+        this.name = name;
+        this.age = age;
+        this.comment = comment;
+    }
+    var rodrigo = new Candidate('1','Rodrigo Duterte','70','Leadership');
+    candidateList.push(rodrigo);
+    var grace = new Candidate('2','Grace Poe','50','Congratulations, you have chosen a valid candidate');
+    candidateList.push(grace);
+    var miriam = new Candidate('3','Miriam Santiago','72','Intelligence');
+    candidateList.push(miriam);
+    var mar = new Candidate('4','Mar Roxas','65','I am sorry but your candidate is blacklisted');
+    blackListed.push(mar);
+    var jejomar = new Candidate('5','Jejomar Binay','75','I am sorry but your candidate is blacklisted');
+    blackListed.push(jejomar);
+
+    function searchList() {
+        try {
+        tempName = document.getElementById("name").value.toLowerCase().split(' ');
+        console.log(tempName);
+        userVote = document.getElementById("name").value.toLowerCase();
+        var re1 = new RegExp(userVote,'i');
+            for (y in blackListed) {
+            if (userVote && userVote.split(' ').join('') == blackListed[y].name.split(' ').join('').toLowerCase()
+            || re1.test(blackListed[y].name)
+            || blackListed[y].name.split(' ').join('').toLowerCase() == tempName[1]+tempName[0]) {
+                document.getElementById("res").innerHTML = blackListed[y].comment;
+                break;
+            } else {
+                for (x in candidateList) {
+                if (userVote && userVote.split(' ').join('') == candidateList[x].name.split(' ').join('').toLowerCase()
+                || re1.test(candidateList[x].name)
+                || candidateList[x].name.split(' ').join('').toLowerCase() == tempName[1]+tempName[0]) {
+                    document.getElementById("res").innerHTML = candidateList[x].comment;
+                    break;
+                } else {
+                     document.getElementById("res").innerHTML = 'Does not match any';
+                }
+            }
+        }
+    }
+        } catch (err) {
+            document.getElementById("res").innerHTML = err.message;
+        }
+    }
+</script>
+</body>
+</html>
